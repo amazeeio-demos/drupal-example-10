@@ -2,7 +2,7 @@ version: '2.3'
 
 x-lagoon-project:
   # Lagoon project name (leave `&lagoon-project` when you edit this)
-  &lagoon-project drupal-example
+  &lagoon-project drupal-example-2
 
 x-volumes:
   &default-volumes
