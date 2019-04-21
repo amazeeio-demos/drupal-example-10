@@ -27,7 +27,9 @@
         "drupal/search_api": "^1.6",
         "drupal/search_api_solr": "^1.2",
         "drupal/varnish_purge": "^1.10",
-        "drupal/purge": "^3.0"
+        "drupal/purge": "^3.0",
+        "drupal/admin_toolbar": "^1.26",
+        "drupal/bootstrap": "^3.17"
     },
     "require-dev": {
         "behat/mink": "~1.7",
