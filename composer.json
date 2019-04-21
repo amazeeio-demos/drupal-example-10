@@ -29,7 +29,8 @@
         "drupal/varnish_purge": "^1.10",
         "drupal/purge": "^3.0",
         "drupal/admin_toolbar": "^1.26",
-        "drupal/bootstrap": "^3.17"
+        "drupal/bootstrap": "^3.17",
+        "drupal/token": "^1.5"
     },
     "require-dev": {
         "behat/mink": "~1.7",

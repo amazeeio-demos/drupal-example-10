@@ -1,6 +1,11 @@
 docker-compose-yaml: docker-compose.yml
 
 project: drupal-example
+environment_variables:
+  git_sha: true
+routes:
+  enabled: true
+  insecure: Redirect
 
 tasks:
 #   pre-rollout:
@@ -35,7 +40,6 @@ tasks:
         name: drush cr
         command: drush -y cr
         service: cli
-
 
 
 environments:
