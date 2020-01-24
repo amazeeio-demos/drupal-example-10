@@ -13,9 +13,9 @@ tasks:
     - run:
         name: IF no Drupal installed and we are not master branch, sync from master brancy
         command: |
-            if tables=$(drush sqlq 'show tables;') && [ -z "$tables" ] && [[ "$LAGOON_GIT_BRANCH" != "master" ]]; then
-                # no drupal installed, sync DB from master branch
-                drush -y sql-sync @master @self
+            if tables=$(drush sqlq "show tables like 'node';") && [ -z "$tables" ]; then
+                # no drupal installed, we install drupal from scratch
+                drush site-install config_installer
             fi
         service: cli
         shell: bash
