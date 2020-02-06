@@ -15,7 +15,7 @@ tasks:
         command: |
             if tables=$(drush sqlq "show tables like 'node';") && [ -z "$tables" ]; then
                 # no drupal installed, we install drupal from scratch
-                drush site-install config_installer
+                drush -y site-install config_installer
             fi
         service: cli
         shell: bash
