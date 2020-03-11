@@ -43,6 +43,7 @@ services:
       - container:amazeeio-ssh-agent
     environment:
       << : *default-environment # loads the defined environment variables from the top
+      COMPOSER_MEMORY_LIMIT: -1
 
   nginx:
     build:
