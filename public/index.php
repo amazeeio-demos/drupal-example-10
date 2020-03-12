@@ -15,23 +15,6 @@ if (file_exists(__DIR__ . '/../vendor/autoload.php')) {
     exit(1);
 }
 
-
-// Hacky config set.
-$env = [
-    'SS_DATABASE_CLASS' => getenv('SS_DATABASE_CLASS', TRUE) ?: 'MySQLDatabase',
-    'SS_DATABASE_SERVER' => getenv('MARIADB_HOST', TRUE) ?: 'mariadb',
-    'SS_DATABASE_USERNAME' => getenv('MARIADB_USERNAME') ?: 'drupal',
-    'SS_DATABASE_PASSWORD' => getenv('MARIADB_PASSWORD') ?: 'drupal',
-    'SS_DATABASE_NAME' => getenv('MARIADB_DATABASE') ?: 'drupal',
-    'SS_DEFAULT_ADMIN_USERNAME' => getenv('SS_DEFAULT_ADMIN_USERNAME') ?: 'admin',
-    'SS_DEFAULT_ADMIN_PASSWORD' => getenv('SS_DEFAULT_ADMIN_PASSWORD') ?: 'super-secret-admin-pass',
-    'SS_ENVIRONMENT_TYPE' => getenv('SS_ENVIRONMENT_TYPE') ?: 'test',
-];
-
-foreach ($env as $name => $value) {
-    putenv("$name=$value");
-}
-
 // Build request and detect flush
 $request = HTTPRequestBuilder::createFromEnvironment();
 
