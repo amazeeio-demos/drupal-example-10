@@ -1,7 +1,7 @@
 ARG CLI_IMAGE
 FROM ${CLI_IMAGE} as cli
 
-FROM amazeeio/nginx:v1.2.0
+FROM amazeeio/nginx-drupal
 
 COPY lagoon/nginx-app.conf /etc/nginx/conf.d/app.conf
 
