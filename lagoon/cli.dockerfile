@@ -23,4 +23,4 @@ RUN composer install --no-dev
 COPY . /app
 
 # Define where the Drupal Root is located
-ENV WEBROOT=web
+ENV WEBROOT=public
