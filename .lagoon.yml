@@ -16,24 +16,15 @@ tasks:
 
   post-rollout:
     - run:
-        name: IF no Drupal installed and we are not master branch, sync from master brancy
+        name: IF database is empty
         command: |
-            if tables=$(drush sqlq "show tables like 'node';") && [ -z "$tables" ]; then
+            if tables=$(drush sqlq "show tables;") && [ -z "$tables" ]; then
                 # no drupal installed, we install drupal from scratch
-                drush -y site-install config_installer
+                ./vendor/bin/sake dev/build
             fi
         service: cli
         shell: bash
     - run:
-        name: drush cim
-        command: drush -y cim
+        name: Show dev tasks
+        command: ./vendor/bin/sake dev/
         service: cli
-    - run:
-        name: drush updb
-        command: drush -y updb
-        service: cli
-    - run:
-        name: drush cr
-        command: drush -y cr
-        service: cli
-
