@@ -4,7 +4,8 @@ project: k8s-drupal-example-1
 
 # Lagoon K8s endpoints.
 endpoint: ssh-lagoon-k8s-kubernetes.ch.amazee.io:32185
-api: api-lagoon-k8s-kubernetes.ch.amazee.io:80
+ssh: ssh-lagoon-k8s-kubernetes.ch.amazee.io:32185
+api: https://api-lagoon-k8s-kubernetes.ch.amazee.io
 
 tasks:
 #   pre-rollout:

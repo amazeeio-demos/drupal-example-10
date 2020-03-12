@@ -2,7 +2,7 @@ version: '2.3'
 
 x-lagoon-project:
   # Lagoon project name (leave `&lagoon-project` when you edit this)
-  &lagoon-project k8s-drupal-example-master
+  &lagoon-project k8s-drupal-example-1
 
 x-volumes:
   &default-volumes
