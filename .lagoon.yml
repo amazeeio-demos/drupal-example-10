@@ -2,6 +2,9 @@ docker-compose-yaml: docker-compose.yml
 
 project: k8s-drupal-example-1
 
+environment_variables:
+  git_sha: 'true'
+
 # Lagoon K8s endpoints.
 endpoint: ssh-lagoon-k8s-kubernetes.ch.amazee.io:32185
 ssh: ssh-lagoon-k8s-kubernetes.ch.amazee.io:32185
