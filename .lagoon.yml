@@ -19,12 +19,8 @@ tasks:
 
   post-rollout:
     - run:
-        name: IF database is empty
-        command: |
-            if tables=$(drush sqlq "show tables;") && [ -z "$tables" ]; then
-                # no drupal installed, we install drupal from scratch
-                ./vendor/bin/sake dev/build
-            fi
+        name: Build database
+        command: ./vendor/bin/sake dev/build
         service: cli
         shell: bash
     - run:
