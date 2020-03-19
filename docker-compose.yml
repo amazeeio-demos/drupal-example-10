@@ -36,13 +36,13 @@ services:
       # Lagoon Labels
       lagoon.type: cli-persistent
       lagoon.persistent.name: nginx # mount the persistent storage of nginx into this container
-      lagoon.persistent: /app/web/sites/default/files/ # location where the persistent storage should be mounted
+      lagoon.persistent: /app/public/assets/ # location where the persistent storage should be mounted
     << : *default-volumes # loads the defined volumes from the top
-    user: root
     volumes_from: # mount the ssh-agent from the pygmy or cachalot ssh-agent
       - container:amazeeio-ssh-agent
     environment:
       << : *default-environment # loads the defined environment variables from the top
+      COMPOSER_MEMORY_LIMIT: -1
 
   nginx:
     build:
@@ -52,7 +52,7 @@ services:
         CLI_IMAGE: *lagoon-project # Inject the name of the cli image
     labels:
       lagoon.type: nginx-php-persistent
-      lagoon.persistent: /app/web/sites/default/files/ # define where the persistent storage should be mounted too
+      lagoon.persistent: /app/public/assets/ # define where the persistent storage should be mounted too
     << : *default-volumes # loads the defined volumes from the top
     << : *default-user # uses the defined user from top
     depends_on:
@@ -73,7 +73,7 @@ services:
     labels:
       lagoon.type: nginx-php-persistent
       lagoon.name: nginx # we want this service be part of the nginx pod in Lagoon
-      lagoon.persistent: /app/web/sites/default/files/ # define where the persistent storage should be mounted too
+      lagoon.persistent: /app/public/assets/ # define where the persistent storage should be mounted too
     << : *default-volumes # loads the defined volumes from the top
     << : *default-user # uses the defined user from top
     depends_on:
@@ -103,7 +103,7 @@ services:
   solr:
     image: amazeeio/solr:6.6-drupal
     labels:
-      lagoon.type: solr
+      lagoon.type: none
     ports:
       - "8983" # exposes the port 8983 with a random local port, find it with `docker-compose port solr 8983`
     environment:

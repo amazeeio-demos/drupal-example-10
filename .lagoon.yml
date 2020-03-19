@@ -2,6 +2,9 @@ docker-compose-yaml: docker-compose.yml
 
 project: drupal-example-10
 
+environment_variables:
+  git_sha: 'true'
+
 tasks:
 #   pre-rollout:
 #     - run:
@@ -11,33 +14,11 @@ tasks:
 
   post-rollout:
     - run:
-        name: IF no Drupal installed and we are not master branch, sync from master brancy
-        command: |
-            if tables=$(drush sqlq 'show tables;') && [ -z "$tables" ] && [[ "$LAGOON_GIT_BRANCH" != "master" ]]; then
-                # no drupal installed, sync DB from master branch
-                drush -y sql-sync @master @self
-            fi
+        name: Build database
+        command: ./vendor/bin/sake dev/build
         service: cli
         shell: bash
     - run:
-        name: drush cim
-        command: drush -y cim
-        service: cli
-    - run:
-        name: drush updb
-        command: drush -y updb
-        service: cli
-    - run:
-        name: drush cr
-        command: drush -y cr
-        service: cli
-
-
-
-environments:
-  master:
-    cronjobs:
-      - name: drush cron
-        schedule: "*/15 * * * *"
-        command: drush cron
+        name: Show dev tasks
+        command: ./vendor/bin/sake dev/
         service: cli
