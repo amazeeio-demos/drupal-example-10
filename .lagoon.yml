@@ -1,6 +1,6 @@
 docker-compose-yaml: docker-compose.yml
 
-project: drupal-example
+project: drupal-example-8
 
 tasks:
 #   pre-rollout:

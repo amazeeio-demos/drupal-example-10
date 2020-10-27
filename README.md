@@ -18,7 +18,7 @@ dependencies with [Composer](https://getcomposer.org/). It is based on the [orig
 1. Checkout this project repo and confirm the path is in Docker's file sharing config - https://docs.docker.com/docker-for-mac/#file-sharing
 
     ```bash
-    git clone https://github.com/amazeeio/drupal-simple-example.git drupal9-lagoon && cd $_
+    git clone git@github.com:amazeeio-demos/drupal-example-8.git && cd $_
     ```
 
 2. Make sure you don't have anything running on port 80 on the host machine (like a web server) then run `pygmy up`
@@ -30,7 +30,7 @@ dependencies with [Composer](https://getcomposer.org/). It is based on the [orig
     docker-compose exec cli composer install
     ```
 
-4. Visit the new site @ `http://drupal-simple-example.docker.amazee.io`
+4. Visit the new site @ `http://drupal-simple-8.docker.amazee.io`
 
 * If any steps fail, you're safe to rerun from any point.
 Starting again from the beginning will just reconfirm the changes.
@@ -44,7 +44,7 @@ This repository is set up with a `.lando.yml` file, which allows you to use Land
 2. Checkout the project repo and confirm the path is in Docker's file sharing config - https://docs.docker.com/docker-for-mac/#file-sharing
 
     ```bash
-    git clone https://github.com/amazeeio/drupal-simple-example.git drupal9-lagoon && cd $_
+    git clone git@github.com:amazeeio-demos/drupal-example-8.git && cd $_
     ```
 
 3. Make sure you have pygmy stopped. Run `pygmy stop` to be sure.

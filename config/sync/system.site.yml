@@ -1,11 +1,11 @@
-uuid: 05dbaca8-e856-4ecd-9301-475e61017a72
-name: 'Lagoon Demo Site'
+uuid: c11390f0-796a-4469-8669-6fc8012e1764
+name: 'Drush Site-Install'
 mail: admin@example.com
 slogan: ''
 page:
   403: ''
   404: ''
-  front: /user/login
+  front: /node
 admin_compact_mode: false
 weight_select_max: 100
 langcode: en
