@@ -15,7 +15,7 @@ tasks:
         command: |
           if tables=$(drush sqlq 'show tables;') && [ -z "$tables" ] && [[ "$LAGOON_GIT_BRANCH" != "main" ]]; then
               # no drupal installed, sync DB from main branch
-              drush -y sql-sync @main @self
+              drush -y sql-sync @lagoon.drupal-example-8-main @self
           fi
         service: cli
     - run:
@@ -34,19 +34,7 @@ tasks:
 
 
 environments:
-  9.x:
-    routes:
-      - nginx:
-        - drupal9.amazee.io:
-            annotations:
-              nginx.ingress.kubernetes.io/server-snippet: |
-                add_header X-BlackLivesMatter ⬛️⬛️⬛️⬛️⬛️⬛️;
-                add_header X-BlackLivesMatter ⬛️⬛️⬛️⬛️⬛️⬛️;
-                add_header X-BlackLivesMatter ⬛️⬛️⬛️⬛️⬛️⬛️;
-                add_header X-BlackLivesMatter ⬛️⬛️⬛️⬛️⬛️⬛️;
-                add_header X-BlackLivesMatter ⬛️⬛️⬛️⬛️⬛️⬛️;
-                add_header X-BlackLivesMatter ⬛️⬛️⬛️⬛️⬛️⬛️;
-                add_header X-Drupal "#Drupal9 on Lagoon #CelebrateDrupal";
+  main:
     cronjobs:
       - name: drush cron
         schedule: "*/15 * * * *"
