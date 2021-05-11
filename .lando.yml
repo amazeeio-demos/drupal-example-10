@@ -1,4 +1,4 @@
-name: drupal-example-8
+name: drupal-example-10
 recipe: lagoon
 config:
   flavor: drupal

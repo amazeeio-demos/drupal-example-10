@@ -1,6 +1,6 @@
 docker-compose-yaml: docker-compose.yml
 
-project: drupal-example-8
+project: drupal-example-10
 
 tasks:
 #   pre-rollout:
@@ -15,7 +15,7 @@ tasks:
         command: |
           if tables=$(drush sqlq 'show tables;') && [ -z "$tables" ] && [[ "$LAGOON_GIT_BRANCH" != "main" ]]; then
               # no drupal installed, sync DB from main branch
-              drush -y sql-sync @lagoon.drupal-example-8-main @self
+              drush -y sql-sync @lagoon.drupal-example-10-main @self
           fi
         service: cli
     - run:
